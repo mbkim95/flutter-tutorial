@@ -8,9 +8,9 @@ enum BottomNavigationDemoType {
 
 class BottomNavigationDemo extends StatefulWidget {
   final String restorationId = 'bottom_navigation_labels_demo';
-  final BottomNavigationDemoType type = BottomNavigationDemoType.withLabels;
+  late BottomNavigationDemoType type = BottomNavigationDemoType.withoutLabels;
 
-  const BottomNavigationDemo({Key? key}) : super(key: key);
+  BottomNavigationDemo({Key? key}) : super(key: key);
 
   @override
   _BottomNavigationDemoState createState() => _BottomNavigationDemoState();
@@ -37,9 +37,9 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
   String _title() {
     switch (widget.type) {
       case BottomNavigationDemoType.withLabels:
-        return 'Hello';
+        return 'Persistent Labels';
       case BottomNavigationDemoType.withoutLabels:
-        return 'Flutter';
+        return 'Selected Label';
     }
   }
 
@@ -85,6 +85,18 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
               item: bottomNavigationBarItems[_currentIndex.value]),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.star),
+        onPressed: () {
+          setState(() {
+            if (widget.type == BottomNavigationDemoType.withLabels) {
+              widget.type = BottomNavigationDemoType.withoutLabels;
+            } else {
+              widget.type = BottomNavigationDemoType.withLabels;
+            }
+          });
+        },
+      ),
       bottomNavigationBar: BottomNavigationBar(
         showUnselectedLabels:
             widget.type == BottomNavigationDemoType.withLabels,
@@ -122,7 +134,7 @@ class _NavigationDestinationView extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
-                child: Image.asset('assets/sample_image.jpeg'),
+                child: Image.asset('assets/sample_image.png'),
               ),
             ),
           ),
@@ -132,6 +144,7 @@ class _NavigationDestinationView extends StatelessWidget {
             data: const IconThemeData(color: Colors.white, size: 80),
             child: Semantics(
               label: item.label,
+              child: item.icon,
             ),
           ),
         )
