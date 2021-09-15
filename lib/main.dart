@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_gallery/bottom_app_bar_demo.dart';
 
 import 'app_bar_demo.dart';
 import 'banner_demo.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         '/': (_) => DemoPage(),
         '/app_bar': (_) => AppBarDemo(),
         '/banner': (_) => BannerDemo(),
+        '/bottom_app_bar': (_) => BottomAppBarDemo(),
       },
     );
   }
@@ -38,7 +40,8 @@ class DemoPage extends StatelessWidget {
         children: [
           _renderHeader("Material"),
           _renderDemoItem(context, "App bar Demo", "/app_bar"),
-          _renderDemoItem(context, "Banner Demo", "/banner")
+          _renderDemoItem(context, "Banner Demo", "/banner"),
+          _renderDemoItem(context, "Bottom App bar Demo", "/bottom_app_bar"),
         ],
       ),
     );
