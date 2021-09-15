@@ -61,7 +61,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('하단 앱 바'),
+        title: Text('Bottom App bar'),
       ),
       body: ListView(
         padding: const EdgeInsets.only(bottom: 88),
