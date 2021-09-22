@@ -5,6 +5,7 @@ import 'package:flutter_gallery/bottom_app_bar_demo.dart';
 import 'app_bar_demo.dart';
 import 'banner_demo.dart';
 import 'bottom_navigation_demo.dart';
+import 'bottom_sheet_demo.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         '/banner': (_) => BannerDemo(),
         '/bottom_app_bar': (_) => BottomAppBarDemo(),
         '/bottom_navigation': (_) => BottomNavigationDemo(),
+        '/bottom_sheet': (_) => BottomSheetDemo(),
       },
     );
   }
@@ -46,6 +48,7 @@ class DemoPage extends StatelessWidget {
           _renderDemoItem(context, "Bottom App bar Demo", "/bottom_app_bar"),
           _renderDemoItem(
               context, "Bottom Navigation Demo", "/bottom_navigation"),
+          _renderDemoItem(context, "Bottom Sheet Demo", "/bottom_sheet"),
         ],
       ),
     );
